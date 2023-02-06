@@ -1,7 +1,8 @@
 import React from "react";
-import Component_Formulario from "../components/Component_Formulario";
-import Card_Ingredientes from "./../components/Card_Ingredientes";
+import ButtonActiveModal from "./ComponentFormulario";
+import IngredientsContainer from "./IngredientsContainer";
 import { useState } from "react";
+import ModalForm from "./ModalForm";
 
 const initialBd = [
   { id: 1, tamaño: "Josue", sabor: "Hola", precio: 50 },
@@ -10,9 +11,10 @@ const initialBd = [
   { id: 4, tamaño: "Josue", sabor: "descripcion", precio: 50 },
 ];
 
-const Agregar_ingredientes = () => {
+const IngredientsSection = () => {
   const [db, setdb] = useState(initialBd);
   const [dataToEdit, setdataToEdit] = useState(null);
+  const [showModal, setShowModal] = React.useState(false);
 
   const createData = (data) => {
     data.id = Date.now();
@@ -20,35 +22,42 @@ const Agregar_ingredientes = () => {
     setdb([...db, data]);
   };
   const UpdateData = (data) => {
-    let newData =db.map(el=> el.id === data.id ? data: el);
+    let newData = db.map(el => el.id === data.id ? data : el);
     setdb(newData);
   };
   const deleteData = (id) => {
     let isDelet = window.confirm('¿Estas seguro de eliminar ?');
-    if(isDelet){
+    if (isDelet) {
       let newData = db.filter(el => el.id !== id);
       setdb(newData);
-    }else{
+    } else {
       return;
     }
   };
+
+
   return (
     <div className="container text-center ">
-      <div className="">
-        <Component_Formulario
-          createData={createData}
-          UpdateData={UpdateData}
-          dataToEdit={dataToEdit}
-          setdataToEdit={setdataToEdit}
-        />
-        <Card_Ingredientes
-          data={db}
-          setdataToEdit={setdataToEdit}
-          deleteData={deleteData}
-        />
-      </div>
+      <ButtonActiveModal
+        setShowModal={setShowModal}
+      />
+
+      {
+        showModal
+          ? (
+            <ModalForm setShowModal={setShowModal} createData={createData} UpdateData={UpdateData} dataToEdit={dataToEdit} setdataToEdit={setdataToEdit} />
+          )
+          : null
+      }
+      
+      <IngredientsContainer
+        data={db}
+        setShowModal={setShowModal}
+        setdataToEdit={setdataToEdit}
+        deleteData={deleteData}
+      />
     </div>
   );
 };
 
-export default Agregar_ingredientes;
+export default IngredientsSection;

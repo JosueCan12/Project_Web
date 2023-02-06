@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function Pages_usuarios() {
+function PageUsuarios() {
   return (
     <div className="container bg-gray-200 ">
       <div className="mx-auto bg-white h-14 shadow-sm">
@@ -118,4 +118,4 @@ function Pages_usuarios() {
   );
 }
 
-export default Pages_usuarios;
+export default PageUsuarios;

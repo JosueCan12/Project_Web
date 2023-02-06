@@ -1,9 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom"
 import Navbar from "./components/Navbar";
-import Pages_Agregar_Ingredientes from './pages/Pages_Agregar_Ingredientes';
-import Pages_usuarios from './pages/Pages_usuarios';
-import Pages_pedido from './pages/Pages_pedido';
+import PagesIngredientes from './pages/PageIngredientes';
+import PageUsuarios from './pages/PageUsuarios';
+import PagePedidos from './pages/PagePedidos';
 
 function App() {
   return (  
@@ -11,9 +11,9 @@ function App() {
     <div className="flex ">
       <Navbar />
       <Routes>  
-        <Route path="/" element={<Pages_pedido />} />
-        <Route path="/usuario" element={<Pages_usuarios />} />
-        <Route path="/ingredientes" element={<Pages_Agregar_Ingredientes />} />
+        <Route path="/" element={<PagePedidos />} />
+        <Route path="/usuario" element={<PageUsuarios />} />
+        <Route path="/ingredientes" element={<PagesIngredientes />} />
       </Routes>
     </div>
  

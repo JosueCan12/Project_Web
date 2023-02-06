@@ -1,16 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import TitlePage from "../components/TitlePage";
 
-function Pages_pedido() {
+function PagePedidos() {
   return (
     <div className="container">
-      <div className=" bg-blanco h-14 shadow-lg ">
-        <ul className=" list-none py-3 text-botones font-bold flex justify-center ">
-          <Link to="/">
-            <li className=" text-2xl">Pedidos</li>
-          </Link>
-        </ul>
-      </div>
+      <TitlePage label="Pedidos"/>
       <div className="grid grid-cols-2 gap-2 py-5 px-14 ">
         <button
           type="button"
@@ -88,4 +83,4 @@ function Pages_pedido() {
     </div>
   );
 }
-export default Pages_pedido;
+export default PagePedidos;

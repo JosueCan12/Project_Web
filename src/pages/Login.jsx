@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.css"
+import "../login.css"
 function Login() {
   return (
     <section className="max-w-full dark:bg-gray-900 bg-image">
