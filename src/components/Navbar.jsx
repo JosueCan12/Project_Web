@@ -6,7 +6,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(true);
 
   const Menus = [
-    { title: "Pedidos", src: "pedido", route: "/pedido" },
+    { title: "Pedidos", src: "pedido", route: "/" },
     { title: "Ingredientes", src: "ingrediente", route: "/ingredientes" },
     { title: "Salir", src: "salida", route: "/cerrar" },
   ];
@@ -15,7 +15,7 @@ const Navbar = () => {
       <div
         className={` ${
           open ? "w-60" : "w-24"
-        } bg-blanco h-screen p-6 col-span-6 pt-8 duration-300 shadow-lg sticky top-0 `}
+        } bg-blanco h-screen p-6 col-span-6 pt-8 duration-300 shadow-lg sticky top-0  `}
       >
         <img
           src="./src/assets/control.png"

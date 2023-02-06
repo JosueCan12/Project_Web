@@ -7,7 +7,7 @@ import Agregar_ingredientes from "./Agregar_ingredientes";
 const Pages_Agregar_Ingredientes = () => {
   return (
     <div className="container ">
-      <div className="mx-auto bg-blanco h-14 shadow-lg">
+      <div className="mx-auto bg-blanco h-14 shadow-lg   ">
         <ul className="list-none py-3 text-botones font-bold flex justify-center ">
           <Link to="/ingredientes">
             <li className="text-2xl ">Ingredientes</li>

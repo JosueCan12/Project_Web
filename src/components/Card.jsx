@@ -8,7 +8,7 @@ export const Table = ({ el, setdataToEdit, deleteData }) => {
       <div className="max-w-sm shadow-xl bg-white border border-gray rounded-lg   dark:border-gray">
         <div>
           <img
-            className="rounded-t-lg"
+            className="rounded-t-lg "
             src="https://imgs.search.brave.com/YzOoqUcP4JmQloLOlyQYU5Su1BGiZ3_kWUis3jvp2t8/rs:fit:715:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5Q/Rk1LMF9nekgzRXhV/d3d0VTVfWnNRSGFF/NiZwaWQ9QXBp"
           />
         </div>
@@ -32,21 +32,21 @@ export const Table = ({ el, setdataToEdit, deleteData }) => {
           </div>
         </div>
         <div className="flex justify-center">
-          <div className="px-3">
+          <div className="px-2 pb-2">
             <button
               onClick={() => setdataToEdit(el)}
-              className="bg-green rounded-md"
+              className="bg-green-900 rounded-lg px-3 py-1 text-blanco"
             >
-             edit
+             Edit
             </button>
           </div>
-          <div className="px-3">
+          <div className="px-2 pb-2">
             {" "}
             <button
               onClick={() => deleteData(id)}
-              className="bg-red rounded-sm " 
+              className="bg-red-700 rounded-lg px-3 py-1 text-blanco" 
             >
-              delet
+              Delet
             </button>
           </div>
         </div>

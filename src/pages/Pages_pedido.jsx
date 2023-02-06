@@ -14,44 +14,71 @@ function Pages_pedido() {
       <div className="grid grid-cols-2 gap-2 py-5 px-14 ">
         <button
           type="button"
-          className="bg-blue shadow-md hover: font-bold rounded w-48 text-blanco h-9"
+          className="bg-blue-500 shadow-md hover: font-bold rounded w-48 text-blanco h-9"
         >
-          {/* <Link to="/usuario">Agregar Usuario</Link> */}
-          Agregar usuarios
+          <Link to="/usuario"> Añadir usuarios</Link>
+        
         </button>
       </div>
       <div className="container w-11/12 shadow-2xl">
-        <div className="grid grid-cols-1 gap-1 px-6 ">
-          <table className="table-auto text-center ">
-            <caption className="font-medium py-3 text-center">
-              Tabla de pedidos{" "}
-            </caption>
-            <thead className="bg-gray ">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table class="w-full text-sm text-left  dark:text-gray-200">
+            <thead class="text-xs text-center text-blanco uppercase bg-gray-400 dark:bg-gray-700 dark:text-blanco">
               <tr>
-                <th className="px-6 py-3">#</th>
-                <th>Producto</th>
-                <th>Nombre</th>
-                <th>Fecha</th>
-                <th>Actions</th>
+                <th scope="col" class="px-6 py-3">
+                 #
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Cliente
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Producto
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Precio
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Fecha
+                </th>
+                <th scope="col" class="px-6 py-3">
+                  Action
+                </th>
+                
               </tr>
             </thead>
-            <tbody>
-              <tr className=" bg-blanco">
-                <td className="px-6 py-4 font-medium">01</td>
-                <td>Pastel Chocolate</td>
-                <td>Josue Calam</td>
-                <td>12-Enero-2022</td>
-                <td className="flex justify-center py-3.5">
-                  <div>
-                    <button className=" w-15 bg-red text-blanco focus:outline-none rounded-md font-medium text-sm px-3 shadow-sm py-2 ">
-                      Eliminar
-                    </button>
-                  </div>
-                  <div className="pl-4">
-                    <button className=" w-15 bg-green text-blanco focus:outline-none rounded-md font-medium text-sm px-5 shadow-sm py-2">
-                      Editar
-                    </button>
-                  </div>
+            <tbody className="text-center ">
+              <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 hover:bg-gray">
+                <th
+                  scope="row"
+                  class="px-6 py-4 font-medium text-black "
+                >
+                  01
+                </th>
+                <td class="px-6 py-4">Josue Can</td>
+                <td class="px-6 py-4">Pastel</td>
+                <td class="px-6 py-4">$299</td>
+                <td class="px-6 py-4">05-Ene-2023</td>
+                <td class="px-6 py-4">
+                  <button className="bg-red-700 px-4 py-1 text-blanco rounded-xl">
+                    Delet
+                  </button>
+                </td>
+              </tr>
+              <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 hover:bg-gray">
+                <th
+                  scope="row"
+                  class="px-6 py-4 font-medium text-black "
+                >
+                  02
+                </th>
+            <td class="px-6 py-4">Josue Can</td>
+                <td class="px-6 py-4">Pastel</td>
+                <td class="px-6 py-4">$299</td>
+                <td class="px-6 py-4">05-Ene-2023</td>
+                <td class="px-6 py-4">
+                <button className="bg-red-700 px-4 py-1 text-blanco rounded-xl">
+                    Delet
+                  </button>
                 </td>
               </tr>
             </tbody>
@@ -61,6 +88,4 @@ function Pages_pedido() {
     </div>
   );
 }
-
 export default Pages_pedido;
-
