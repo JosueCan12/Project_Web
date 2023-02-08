@@ -1,7 +1,7 @@
 import React from "react";
 import OptionCard from "./OptionCard";
 
-const OptionsContainer = () => {
+const OptionsContainer = ({showModal}) => {
   const Cards = [
     {
       title: "Añadir tamaño del pan",
@@ -25,7 +25,7 @@ const OptionsContainer = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 px-6 py-5">
       {Cards.map((Card, index) => (
-        <OptionCard info={Card} key={index} />
+        <OptionCard info={Card} key={index}showModal={showModal}/>
       ))}
     </div>
   );

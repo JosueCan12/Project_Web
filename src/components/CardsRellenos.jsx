@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react'
 
-const CardIngredient = ({ element, setdataToEdit, deleteData, setShowModal }) => {
+
+const CardsRellenos = ({ element, setdataToEdit, deleteData, setShowModal })=>{
   let { tamaño, sabor, precio, id } = element;
-
-  return (
+  return(
     <div className="col-span-1 py-3 px-3">
       <div className="max-w-sm mx-auto shadow-xl bg-white border border-gray rounded-lg dark:border-gray">
         <div className="">
           <img
             className="rounded-t-lg "
-            src="https://imgs.search.brave.com/TO4Crrdwnppz_1Q4xGrzVtJ5wm8cwHZiRCzJ4Uw4nIo/rs:fit:1200:853:1/g:ce/aHR0cDovL3d3dy50/YXJqZXRhc2RlY3Vt/cGxlYW5vcy5pbmZv/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDEz/LzEwL0ltJUMzJUEx/Z2VuZXMtZGUtcGFz/dGVsZXMtZGUtY3Vt/cGxlYSVDMyVCMW9z/MS5qcGc"
+            src="https://imgs.search.brave.com/ptN9NKkhoUwi8cacCO6pqVXBvweaepIXstvCoIgKZc8/rs:fit:1200:1060:1/g:ce/aHR0cHM6Ly8xLmJw/LmJsb2dzcG90LmNv/bS8tUlVTUGRQX2dV/RHMvVjBKMExvb2Ro/WEkvQUFBQUFBQUZv/RGMvRVh6RzJ0amo4/UlVUdXctUEFESjBx/SmlKZE5vZzZ3SUh3/Q0xjQi9zMTYwMC90/YXJ0YTI4LnBuZw"
           />
         </div>
         <div className="p-1 ">
@@ -53,7 +53,7 @@ const CardIngredient = ({ element, setdataToEdit, deleteData, setShowModal }) =>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CardIngredient;
+export default CardsRellenos

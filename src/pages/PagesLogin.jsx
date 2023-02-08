@@ -1,6 +1,27 @@
-import React from "react";
-import "../login.css"
-function Login() {
+import React, { useState } from "react";
+import "../login.css";
+import { useNavigate } from "react-router-dom";
+
+/* import ComponentLogin from "../components/ComponentLogin"; */
+
+function Login({ setIsLoggedin }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
+
+  const handleSumbit = async (event) => {
+    event.preventDefault();
+    console.log(`${username} - ${password}`);
+    if (username === "user" && password === "123") {
+      setIsLoggedin(true);
+      return navigate("/pedido");
+    } else {
+      setError("Invalid username or password");
+    }
+  };
+
   return (
     <section className="max-w-full dark:bg-gray-900 bg-image">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -9,15 +30,14 @@ function Login() {
             <h1 className="text-xl font-bold text-center leading-tight tracking-tight md:text-2xl text-blue-700 dark:text-white py-5">
               ¡Bienviendo!
             </h1>
-            <form className="space-y-4 md:space-y-6" action="#">
+            <form className="space-y-4 md:space-y-6" onSubmit={handleSumbit}>
               <div className="">
-                <label
-                  
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Usuario
                 </label>
                 <input
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   type="text"
                   name="usuario"
                   id="usuario"
@@ -27,13 +47,12 @@ function Login() {
                 />
               </div>
               <div className="pt-1">
-                <label
-                  
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                Contraseña
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Contraseña
                 </label>
                 <input
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   type="password"
                   name="password"
                   id="password"
@@ -44,30 +63,26 @@ function Login() {
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex items-start">
-                  <div className="flex items-center h-5">
-                    
-                  </div>
+                  <div className="flex items-center h-5"></div>
                   <div className="ml-3 text-sm">
-                  <a
-                  href="#"
-                  className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
-                >
-                  Forgot password?
-                </a>
+                    <a
+                      href="#"
+                      className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
+                    >
+                      Forgot password?
+                    </a>
                   </div>
                 </div>
-                
               </div>
               <div className="py-3">
-              <button
-                type="submit"
-                className="w-full text-white bg-blue-500 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-              >
-                Iniciar sesion
-              </button>
+                <button
+                  type="submit"
+                  className="w-full text-white bg-blue-500 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                >
+                  Iniciar sesion
+                </button>
+                {error && <p style={{ color: "red" }}>{error}</p>}
               </div>
-              
-              
             </form>
           </div>
         </div>

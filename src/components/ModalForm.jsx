@@ -64,16 +64,16 @@ function ModalForm({
           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
 
             {/* MODAL HEADER */}
-            <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+            <div className="flex t items-start justify-between p-3 border-b border-solid border-slate-200 rounded-t">
 
               {/* MODAL TITLE */}
-              <h1 className="text-center pt-5  pb-8 text-2xl font-bold text-blue-600 ">
+              <h1 className=" py-1 pl- text-2xl font-bold text-blue-600 ">
                 {dataToEdit ? "Editar" : "Agregar "}
               </h1>
 
               {/* CLOSE BUTTON MODAL */}
               <button
-                className="bg-transparent border-0 text-black transition-all duration-150 ease-linear bg-segundo  hover:bg-fondo hover:text-blanco rounded-full px-4 pt-1 pb-3 shadow-md text-xl font-bold"
+                className="bg-transparent border-0 text-black transition-all duration-150 ease-linear  px-4 pt-1 pb-3  text-xl font-bold"
                 onClick={() => {
                   setShowModal(false)
                   setdataToEdit(null)

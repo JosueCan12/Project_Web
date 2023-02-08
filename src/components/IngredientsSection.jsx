@@ -3,6 +3,7 @@ import ButtonActiveModal from "./ComponentFormulario";
 import IngredientsContainer from "./IngredientsContainer";
 import { useState } from "react";
 import ModalForm from "./ModalForm";
+import ContainerRelleno from './ContainerRelleno';
 
 const initialBd = [
   { id: 1, tamaño: "Josue", sabor: "Hola", precio: 50 },
@@ -56,6 +57,12 @@ const IngredientsSection = () => {
         setdataToEdit={setdataToEdit}
         deleteData={deleteData}
       />
+    
+     <ContainerRelleno
+      data={db}
+      setShowModal={setShowModal}
+      setdataToEdit={setdataToEdit}
+      deleteData={deleteData}/> 
     </div>
   );
 };

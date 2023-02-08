@@ -12,7 +12,7 @@ const ButtonActiveModal = ({
           type="button"
           onClick={() => setShowModal(true)}
         >
-          Open regular modal
+          
         </button>
     </div>
   );

@@ -2,13 +2,15 @@ import { useState } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 
+
 const Navbar = () => {
+  
   const [open, setOpen] = useState(true);
 
   const Menus = [
-    { title: "Pedidos", src: "pedido", route: "/" },
+    { title: "Pedidos", src: "pedido", route: "/pedido" },
     { title: "Ingredientes", src: "ingrediente", route: "/ingredientes" },
-    { title: "Salir", src: "salida", route: "/cerrar" },
+    { title: "Salir", src: "salida", route: "/" },
   ];
   return (
     <div className=" relative ">
@@ -49,7 +51,7 @@ const Navbar = () => {
               } hover:bg-gray hover:text-blue gap-x-4 
                 ${Menu.gap ? "mt-9" : "mt-5"} `}
             >
-              <Link to={Menu.route} className="flex">
+              <Link to={Menu.route} className="flex" >
                 <img
                   src={`./src/assets/${Menu.src}.png`}
                   style={{ width: 25 }}
