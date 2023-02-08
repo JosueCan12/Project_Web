@@ -5,7 +5,7 @@ import OptionsContainer from "../components/OptionsContainer";
 import ButtonActiveModal from "../components/ComponentFormulario";
 import IngredientsContainer from "../components/IngredientsContainer";
 import ModalForm from "../components/ModalForm";
-import ContainerRelleno from "../components/ContainerRelleno";
+/* import ContainerRelleno from "../components/ContainerRelleno"; */
 const initialBd = [
   { id: 1, tamaño: "Josue", sabor: "Hola", precio: 50 },
   { id: 2, tamaño: "Josue", sabor: "descripcion", precio: 50 },
@@ -37,7 +37,7 @@ const PagesIngredientes = () => {
       return;
     }
   };
-
+  
   return (
     <div className="container">
       <TitlePage label="Ingredientes" />
@@ -61,7 +61,7 @@ const PagesIngredientes = () => {
         />
       </div>
 
-      <div className="text-center">
+      {/* <div className="text-center">
 
         <ContainerRelleno
           data={db}
@@ -71,7 +71,7 @@ const PagesIngredientes = () => {
         />
       </div>
 
-      {/* <IngredientsSection /> */}
+      <IngredientsSection /> */}
 
     </div>
   );
