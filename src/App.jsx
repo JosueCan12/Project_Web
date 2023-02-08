@@ -7,6 +7,7 @@ import PagePedidos from "./pages/PagePedidos";
 import Login from "./pages/PagesLogin";
 
 function App() {
+<<<<<<< HEAD
   const [isLoggedIn, setIsLoggedin] = useState(false);
 
   return (
@@ -23,6 +24,16 @@ function App() {
       ) : null}
       <Routes>
         <Route path="/" element={<Login setIsLoggedin={setIsLoggedin} />} />
+=======
+  return (  
+  
+    <div className="flex">
+      <Navbar />
+      <Routes>  
+        <Route path="/" element={<PagePedidos />} />
+        <Route path="/usuario" element={<PageUsuarios />} />
+        <Route path="/ingredientes" element={<PagesIngredientes />} />
+>>>>>>> 46f039bd0e382b371c3ae1e7a32f7dc89cbde323
       </Routes>
     </div>
   );
