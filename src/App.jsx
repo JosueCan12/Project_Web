@@ -11,6 +11,7 @@ import PageBreadSize from "./pages/PageBreadSize";
 import PageBreadFlavor from "./pages/PageBreadFlavor";
 import PageDesign from "./pages/PageDesign";
 import PageStuffing from "./pages/PageStuffing";
+import PageUpdate from "./pages/PageUpdate";
 
 function App() {
   const { isLoggedIn, rol } = useAuth();
@@ -28,6 +29,7 @@ function App() {
             <Route path="/pedidos" element={<PagePedidos />} />
             <Route path="/ingredients" element={<PagesIngredientes />}>
               <Route path="size" element={<PageBreadSize />} />
+              <Route path="/ingredients/size/:id" element={<PageUpdate />} />
               <Route path="flavor" element={<PageBreadFlavor />} />
               <Route path="design" element={<PageDesign />} />
               <Route path="stuffin" element={<PageStuffing />} />

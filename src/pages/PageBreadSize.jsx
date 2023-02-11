@@ -1,5 +1,4 @@
 import { useState } from "react";
-import FormUpdate from "../components/FormUpdate";
 import Modal from "../components/Modal";
 import ModalInput from "../components/ModalInput";
 import TableIngredient from "../components/TableIngredient";
@@ -16,9 +15,9 @@ function PageBreadSize() {
   return (
     <div className="py-4 px-6">
       <TableIngredient
+        navigateTo={"/ingredients/size"}
         data={sizes}
         handleShowModal={setShowModal}
-        Modal={FormUpdate}
         title={"Tamaños"}
       />
 
@@ -30,7 +29,7 @@ function PageBreadSize() {
         submitEvent={handleSubmit}
         title={"Agregar"}
       >
-        <ModalInput
+        <ModalInput 
           type={"text"}
           label={"Nombre"}
           name={"size"}

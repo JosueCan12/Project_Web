@@ -1,7 +1,7 @@
 import { Children } from "react";
 import TableIngredientRow from "./TableIngredientRow";
 
-function TableIngredient({ data, title, handleShowModal, Modal }) {
+function TableIngredient({ data, title, handleShowModal, navigateTo }) {
   return (
     <div className="w-full xl:w-11/12 xl:mb-0 mx-auto -z-30">
       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-2xl rounded ">
@@ -50,12 +50,12 @@ function TableIngredient({ data, title, handleShowModal, Modal }) {
             <tbody>
               {data.map((element, index) => (
                 <TableIngredientRow
+                  navigateTo={navigateTo}
                   id={element.id}
                   imgURL={element.imgURL}
                   nombre={element.nombre}
                   precio={element.precio}
                   index={index + 1}
-                  Modal={Modal}
                   key={index}
                 />
               ))}

@@ -1,21 +1,10 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Modal from "./Modal";
-import ModalInput from "./ModalInput";
 
-function TableIngredientRow({
-  fun = () => {},
-  index,
-  id,
-  imgURL,
-  nombre,
-  precio,
-  Modal,
-}) {
-  const [showModal, setShowModal] = useState(false);
+function TableIngredientRow({ navigateTo, index, id, imgURL, nombre, precio }) {
+  const navigate = useNavigate();
 
   const handleClick = () => {
-    setShowModal(true);
+    navigate(`${navigateTo}/${id} `);
   };
 
   return (
@@ -46,7 +35,6 @@ function TableIngredientRow({
           Dar de baja
         </button>
       </td>
-      <Modal />
     </tr>
   );
 }
