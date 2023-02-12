@@ -1,11 +1,16 @@
 import api from "./base";
 
-export const createIngredientRequest = async (route, body, token) => {
+const createForm = (body) => {
   const form = new FormData();
-
-  for (let key in body) {
+  for (const key in body) {
     form.append(key, body[key]);
   }
+
+  return form;
+};
+
+export const createIngredientRequest = async (route, body, token) => {
+  const form = createForm(body);
 
   return api.post(route, form, {
     headers: {
@@ -21,3 +26,14 @@ export const getIngredientRequest = async (route, token) =>
       Authorization: token,
     },
   });
+
+export const updateIngredientRequest = async (route, body, token) => {
+  const form = createForm(body);
+
+  return api.put(route, form, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+      Authorization: token,
+    },
+  });
+};

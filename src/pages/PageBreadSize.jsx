@@ -6,7 +6,7 @@ import { useSizes } from "../hooks/useIngredients";
 
 function PageBreadSize() {
   const [showModal, setShowModal] = useState(false);
-  const { sizes, createIngredient: createSize } = useSizes();
+  const { sizes, createSize } = useSizes();
 
   const handleSubmit = (form) => {
     createSize(form);
@@ -29,7 +29,7 @@ function PageBreadSize() {
         submitEvent={handleSubmit}
         title={"Agregar"}
       >
-        <ModalInput 
+        <ModalInput
           type={"text"}
           label={"Nombre"}
           name={"size"}

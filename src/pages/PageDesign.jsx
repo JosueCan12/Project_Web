@@ -9,12 +9,18 @@ function PageDesign() {
   const { designs, createDesign } = useSizes();
 
   const handleSubmit = (form) => {
-    createDesign(form);
+    createDesign(form).then((res) => {
+      console.log(res);
+    });
   };
 
   return (
     <div className="py-4 px-6">
-      <TableIngredient data={designs} handleShowModal={setShowModal} title={"Diseños"} />
+      <TableIngredient
+        data={designs}
+        handleShowModal={setShowModal}
+        title={"Diseños"}
+      />
 
       {/* Modal Component */}
 
@@ -27,7 +33,7 @@ function PageDesign() {
         <ModalInput
           type={"text"}
           label={"Nombre"}
-          name={"design"}
+          name={"description"}
           placeholder={"Nombre"}
         />
         <ModalInput

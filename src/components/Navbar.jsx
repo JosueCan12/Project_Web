@@ -67,10 +67,16 @@ const Navbar = () => {
                   <NavOption route={"/ingredients/design"} title={"Diseño"} />
                 </li>
                 <li>
-                  <NavOption route={"/ingredients/size"} title={"Tamaño del pan"} />
+                  <NavOption
+                    route={"/ingredients/size"}
+                    title={"Tamaño del pan"}
+                  />
                 </li>
                 <li>
-                  <NavOption route={"/ingredients/flavor"} title={"Sabor del pan"} />
+                  <NavOption
+                    route={"/ingredients/flavor"}
+                    title={"Sabor del pan"}
+                  />
                 </li>
                 <li>
                   <NavOption route={"/ingredients/stuffin"} title={"Relleno"} />
@@ -87,9 +93,6 @@ const Navbar = () => {
               imgURL={"salida"}
             />
           </li>
-              <li>
-                <Link to={"/ingredients/size/10"} >Ir a 10</Link>
-              </li>
         </ul>
       </div>
     </div>

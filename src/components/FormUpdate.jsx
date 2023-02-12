@@ -1,6 +1,60 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-function FormUpdate({ title, handleShowModal, showModal, submitEvent }) {
+function FormUpdate({ title, chargeSumbit, submitEvent }) {
+  const [form, setForm] = useState({});
+  const navigate = useNavigate();
+  const params = useParams();
+
+  useEffect(() => {
+    chargeSumbit(params.id).then((res) => {
+      res = {
+        id: res.id,
+        size: res.size,
+        price: res.price,
+      };
+      setForm(res);
+    });
+  }, []);
+
+  // useEffect(() => {
+  //   console.log(form);
+  // }, [form]);
+
+  const handleChange = (event) => {
+    const input = event.target;
+
+    setForm({
+      ...form,
+      [input.name]: input.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    const inputs = [...event.target];
+
+    event.preventDefault();
+
+    inputs.forEach((element) => {
+      const input = element;
+      const typeInput = input.attributes.type.nodeValue;
+
+      if (typeInput === "submit") {
+        return;
+      }
+
+      if (typeInput === "number" && parseInt(input.value) <= 0) {
+        console.log("Ingrese un valor valido");
+      }
+
+      if (typeInput === "file" && input.files.length <= 0) {
+        console.log("no hay imagen");
+        return;
+      }
+
+      console.log(input.name);
+    });
+  };
 
   return (
     <div className="bg-white max-w-[500px] m-auto mt-5 w-full rounded-md border border-gray-200 max-h-full shadow-2xl py-2 px-3">
@@ -8,16 +62,16 @@ function FormUpdate({ title, handleShowModal, showModal, submitEvent }) {
         <h1>{title}</h1>
         <button
           className="text-gray-300 hover:text-black transition-all duration-75 text-lg"
-          // onClick={() => {
-          //   handleShowModal(false);
-          // }}
+          onClick={() => {
+            navigate(-1);
+          }}
         >
           &times;
         </button>
       </div>
       <hr className="h-px my-3 bg-gray-200 border-0 " />
 
-      <form className="flex flex-col rounded-md mt-4">
+      <form className="flex flex-col rounded-md mt-4" onSubmit={handleSubmit}>
         {/* ... */}
         <div className="flex flex-col">
           <label
@@ -30,6 +84,8 @@ function FormUpdate({ title, handleShowModal, showModal, submitEvent }) {
             type="text"
             id="size"
             name="size"
+            value={form.size || ""}
+            onChange={handleChange}
             className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
           />
         </div>
@@ -46,6 +102,8 @@ function FormUpdate({ title, handleShowModal, showModal, submitEvent }) {
             type="number"
             id="price"
             name="price"
+            value={form.price || ""}
+            onChange={handleChange}
             className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
           />
         </div>
@@ -61,6 +119,7 @@ function FormUpdate({ title, handleShowModal, showModal, submitEvent }) {
             type="file"
             id="imagen"
             name="imagen"
+            onChange={handleChange}
             className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
           />
         </div>

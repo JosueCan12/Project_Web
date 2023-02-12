@@ -48,17 +48,20 @@ function TableIngredient({ data, title, handleShowModal, navigateTo }) {
             </thead>
 
             <tbody>
-              {data.map((element, index) => (
-                <TableIngredientRow
-                  navigateTo={navigateTo}
-                  id={element.id}
-                  imgURL={element.imgURL}
-                  nombre={element.nombre}
-                  precio={element.precio}
-                  index={index + 1}
-                  key={index}
-                />
-              ))}
+              {data.map((element, index) => {
+                console.log(element);
+                return (
+                  <TableIngredientRow
+                    navigateTo={navigateTo}
+                    id={element.id}
+                    imgURL={element.imgURL}
+                    nombre={element.nombre}
+                    precio={element.precio}
+                    index={index + 1}
+                    key={index}
+                  />
+                );
+              })}
             </tbody>
           </table>
         </div>
