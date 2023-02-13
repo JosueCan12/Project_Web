@@ -12,7 +12,7 @@ function PagePedidos() {
     <div className="container">
       <TitlePage label="Pedidos" />
 
-      {rol === "admin" ? <OptionAddUsers /> : null}
+      {/* {rol === "admin" ? <OptionAddUsers /> : null} */}
 
       <ComponentPedidos />
     </div>

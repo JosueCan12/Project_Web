@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { getOrders } from "../api/orders";
+import { getOrders, changeStatusRequest } from "../api/orders";
 import { useAuth } from "../hooks/useAuth";
 
 export const ordersContext = createContext();
@@ -7,15 +7,28 @@ export const ordersContext = createContext();
 export function OrdersProvider({ children }) {
   const [orders, setOrders] = useState([]);
   const { token } = useAuth();
-  
+
   useEffect(() => {
     (async () => {
       const res = await getOrders(token);
       setOrders(res.data);
+      console.log(res.data);
     })();
   }, []);
 
+  const changeStatus = async (id) => {
+    const res = await changeStatusRequest(id, token);
+    setOrders(
+      orders.map((order) => {
+        return order.orderId === id ? res.data[0] : order;
+      })
+    );
+    return res;
+  };
+
   return (
-    <ordersContext.Provider value={orders}>{children}</ordersContext.Provider>
+    <ordersContext.Provider value={{ orders, changeStatus }}>
+      {children}
+    </ordersContext.Provider>
   );
 }

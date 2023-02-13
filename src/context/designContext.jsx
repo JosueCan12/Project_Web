@@ -3,6 +3,7 @@ import {
   createIngredientRequest,
   deleteIngredientRequest,
   getIngredientRequest,
+  updateIngredientImageRequest,
   updateIngredientRequest,
 } from "../api/ingredients";
 import { useAuth } from "../hooks/useAuth";
@@ -60,6 +61,20 @@ export function DesignsProvider({ children }) {
     );
     return res;
   };
+
+  // const updateDesignImage = async (id, form) => {
+  //   const res = await updateIngredientImageRequest(
+  //     `/cakedesignimg/${id}`,
+  //     form,
+  //     token
+  //   );
+  //   setDesigns(
+  //     designs.map((design) =>
+  //       design.id === id ? designToItemTable(res.data) : design
+  //     )
+  //   );
+  //   return res;
+  // };
 
   const deleteDesign = async (id) => {
     const res = await deleteIngredientRequest(`/cakedesignS/${id}`, token);

@@ -1,4 +1,8 @@
-function OrderRow({ element, index }) {
+function OrderRow({ element, index, handleChangeStatus }) {
+  const handleClick = () => {
+    handleChangeStatus(element.orderId);
+    // console.log(element.orderId);
+  };
 
   return (
     <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700 hover:bg-gray text-xs">
@@ -6,7 +10,11 @@ function OrderRow({ element, index }) {
         {index}
       </th>
       <td className="px-6 py-4">
-        <img className="max-w-[100px] p-0 m-auto" src={`${element.imgURL}`} alt="" />
+        <img
+          className="max-w-[100px] p-0 m-auto"
+          src={`${element.imgURL}`}
+          alt=""
+        />
       </td>
       <td className="px-6 py-4">
         <ul>
@@ -18,9 +26,15 @@ function OrderRow({ element, index }) {
       <td className="px-6 py-4">$299</td>
       <td className="px-6 py-4">{element.orderDay}</td>
       <td className="px-6 py-4">
-        <p>
-          {element.status}
-        </p>
+        <p>{element.status}</p>
+      </td>
+      <td>
+        <button
+          className="bg-blue-500 text-white py-2 px-2 rounded-md hover:bg-blue-800 transition-all duration-100"
+          onClick={handleClick}
+        >
+          Finalizar
+        </button>
       </td>
     </tr>
   );
