@@ -2,21 +2,20 @@ import { useState } from "react";
 import Modal from "../components/Modal";
 import ModalInput from "../components/ModalInput";
 import TableIngredient from "../components/TableIngredient";
-import { useSizes } from "../hooks/useIngredients";
+import { useDesigns } from "../hooks/useIngredients";
 
 function PageDesign() {
   const [showModal, setShowModal] = useState(false);
-  const { designs, createDesign } = useSizes();
+  const { designs, createDesign } = useDesigns();
 
   const handleSubmit = (form) => {
-    createDesign(form).then((res) => {
-      console.log(res);
-    });
+    createDesign(form);
   };
 
   return (
     <div className="py-4 px-6">
       <TableIngredient
+        navigateTo={"/ingredients/design"}
         data={designs}
         handleShowModal={setShowModal}
         title={"Diseños"}

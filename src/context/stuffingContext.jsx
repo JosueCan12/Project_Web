@@ -12,17 +12,22 @@ export function StuffingsProvider({ children }) {
   const [stuffings, setStuffings] = useState([]);
   const { token } = useAuth();
 
+  const stuffingToItemTable = (stuffing) => {
+    return {
+      id: stuffing._id,
+      imgURL: stuffing.imgURL,
+      nombre: stuffing.stuffing,
+      precio: stuffing.price,
+      status: stuffing.status,
+    };
+  };
+
   useEffect(() => {
     (async () => {
       const resStuffings = await getIngredientRequest("/stuffings", token);
       setStuffings(
         [...resStuffings.data].map((element) => {
-          return {
-            id: element._id,
-            imgURL: element.imgURL,
-            nombre: element.stuffing,
-            precio: element.price,
-          };
+          return stuffingToItemTable(element);
         })
       );
     })();
@@ -30,7 +35,7 @@ export function StuffingsProvider({ children }) {
 
   const createStuffing = async (form) => {
     const res = await createIngredientRequest("/stuffing", form, token);
-    setStuffings([...stuffings, res]);
+    setStuffings([...stuffings, stuffingToItemTable(res.data)]);
     return res;
   };
 
@@ -39,10 +44,18 @@ export function StuffingsProvider({ children }) {
       return {
         id: res.data._id,
         imagen: res.data.imgURL,
-        stuffing: res.data.size,
+        stuffing: res.data.stuffing,
         price: res.data.price,
       };
     });
+  };
+
+  const updateStuffing = async (id, form) => {
+    const res = await updateIngredientRequest(`/stuffing/${id}`, form, token);
+    setStuffings(
+      stuffings.map((stuffing) => (stuffing.id === id ? stuffingToItemTable(res.data) : stuffing))
+    );
+    return res;
   };
 
   return (
@@ -51,6 +64,7 @@ export function StuffingsProvider({ children }) {
         stuffings,
         createStuffing,
         getStuffing,
+        updateStuffing
       }}
     >
       {children}

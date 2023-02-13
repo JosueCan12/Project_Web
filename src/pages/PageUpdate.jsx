@@ -8,7 +8,7 @@ function PageUpdate() {
     <div className="container relative">
       <FormUpdate
         title={"Editar"}
-        chargeSumbit={getSize}
+        handleCharge={getSize}
         submitEvent={updateSize}
       />
     </div>

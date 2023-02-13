@@ -1,4 +1,4 @@
-import api from './base'
+import api from "./base";
 
 export const signIn = async ({ email, password }) =>
   await api.post("/signin", {
@@ -6,9 +6,25 @@ export const signIn = async ({ email, password }) =>
     password,
   });
 
-export const signUpWorker = async ({ email, password, roles }) =>
-  await api.post("/signup/worker", {
-    email,
-    password,
-    roles,
-  });
+export const signUpWorker = async ({
+  name,
+  lastname,
+  email,
+  password,
+  roles,
+}, token) =>
+  await api.post(
+    "/signup/worker",
+    {
+      name,
+      lastname,
+      email,
+      password,
+      roles,
+    },
+    {
+      headers: {
+        Authorization: token
+      }
+    }
+  );

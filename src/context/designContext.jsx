@@ -12,17 +12,22 @@ export function DesignsProvider({ children }) {
   const [designs, setDesigns] = useState([]);
   const { token } = useAuth();
 
+  const designToItemTable = (item) => {
+    return {
+      id: item._id,
+      imgURL: item.imgURL,
+      nombre: item.description,
+      precio: item.price,
+      status: item.status,
+    };
+  };
+
   useEffect(() => {
     (async () => {
       const resDesigns = await getIngredientRequest("/cakedesigns", token);
       setDesigns(
         [...resDesigns.data].map((element) => {
-          return {
-            id: element._id,
-            imgURL: element.imgURL,
-            nombre: element.description,
-            precio: element.price,
-          };
+          return designToItemTable(element);
         })
       );
     })();
@@ -30,8 +35,7 @@ export function DesignsProvider({ children }) {
 
   const createDesign = async (form) => {
     const res = await createIngredientRequest("/cakedesign", form, token);
-    console.log(res);
-    setDesigns([...designs, res]);
+    setDesigns([...designs, designToItemTable(res.data)]);
     return res;
   };
 
@@ -40,10 +44,20 @@ export function DesignsProvider({ children }) {
       return {
         id: res.data._id,
         imagen: res.data.imgURL,
-        design: res.data.size,
+        description: res.data.description,
         price: res.data.price,
       };
     });
+  };
+
+  const updateDesign = async (id, form) => {
+    const res = await updateIngredientRequest(`/cakedesign/${id}`, form, token);
+    setDesigns(
+      designs.map((design) =>
+        design.id === id ? designToItemTable(res.data) : design
+      )
+    );
+    return res;
   };
 
   return (
@@ -52,6 +66,7 @@ export function DesignsProvider({ children }) {
         designs,
         createDesign,
         getDesign,
+        updateDesign,
       }}
     >
       {children}

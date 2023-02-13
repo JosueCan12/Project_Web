@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { signIn } from "../api/auth";
+import { signIn, signUpWorker } from "../api/auth";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 export const authContext = createContext();
@@ -15,8 +15,6 @@ export function AuthProvider({ children }) {
       const token = await res.data.token;
       const rol = await res.data.rol;
       const status = res.status;
-
-      console.log(res.data);
 
       setRol(rol);
       setIsLoggedIn(true);
@@ -36,8 +34,14 @@ export function AuthProvider({ children }) {
     setIsLoggedIn(false);
   };
 
+  const registerAccount = (body) => {
+    return signUpWorker(body, token).then((res) => {
+      console.log(res);
+    });
+  };
+
   return (
-    <authContext.Provider value={{ login, token, logout, isLoggedIn, rol }}>
+    <authContext.Provider value={{ login, token, logout, isLoggedIn, rol, registerAccount }}>
       {children}
     </authContext.Provider>
   );

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-function FormUpdate({ title, handleCharge, submitEvent }) {
+function FormUpdateDesign({ title, handleCharge, submitEvent }) {
   const [form, setForm] = useState({});
   const navigate = useNavigate();
   const params = useParams();
@@ -9,7 +9,7 @@ function FormUpdate({ title, handleCharge, submitEvent }) {
   useEffect(() => {
     handleCharge(params.id).then((res) => {
       res = {
-        size: res.size,
+        description: res.description,
         price: res.price,
       };
       setForm(res);
@@ -71,16 +71,16 @@ function FormUpdate({ title, handleCharge, submitEvent }) {
         {/* ... */}
         <div className="flex flex-col">
           <label
-            htmlFor="size"
+            htmlFor="description"
             className="text-gray-800 text-sm font-bold leading-tight tracking-normal"
           >
             Tamaño:
           </label>
           <input
             type="text"
-            id="size"
-            name="size"
-            value={form.size || ""}
+            id="description"
+            name="description"
+            value={form.description || ""}
             onChange={handleChange}
             className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
           />
@@ -130,4 +130,4 @@ function FormUpdate({ title, handleCharge, submitEvent }) {
   );
 }
 
-export default FormUpdate;
+export default FormUpdateDesign;

@@ -2,11 +2,11 @@ import { useState } from "react";
 import Modal from "../components/Modal";
 import ModalInput from "../components/ModalInput";
 import TableIngredient from "../components/TableIngredient";
-import { useSizes } from "../hooks/useIngredients";
+import { useStuffings } from "../hooks/useIngredients";
 
 function PageStuffing() {
   const [showModal, setShowModal] = useState(false);
-  const { stuffings, createStuffing } = useSizes();
+  const { stuffings, createStuffing } = useStuffings();
 
   const handleSubmit = (form) => {
     createStuffing(form);
@@ -14,7 +14,12 @@ function PageStuffing() {
 
   return (
     <div className="py-4 px-6">
-      <TableIngredient data={stuffings} handleShowModal={setShowModal} title={"Rellenos"} />
+      <TableIngredient
+        data={stuffings}
+        handleShowModal={setShowModal}
+        title={"Rellenos"}
+        navigateTo={"/ingredients/stuffing"}
+      />
 
       {/* Modal Component */}
 

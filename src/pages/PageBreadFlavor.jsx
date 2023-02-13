@@ -2,11 +2,11 @@ import { useState } from "react";
 import Modal from "../components/Modal";
 import ModalInput from "../components/ModalInput";
 import TableIngredient from "../components/TableIngredient";
-import { useSizes } from "../hooks/useIngredients";
+import { useFlavors } from "../hooks/useIngredients";
 
 function PageBreadFlavor() {
   const [showModal, setShowModal] = useState(false);
-  const { flavors, createFlavor } = useSizes();
+  const { flavors, createFlavor } = useFlavors();
 
   const handleSubmit = (form) => {
     createFlavor(form);
@@ -14,7 +14,7 @@ function PageBreadFlavor() {
 
   return (
     <div className="py-4 px-6">
-      <TableIngredient data={flavors} handleShowModal={setShowModal} title={"Sabores"} />
+      <TableIngredient data={flavors} handleShowModal={setShowModal} title={"Sabores"} navigateTo={"/ingredients/flavor"} />
 
       {/* Modal Component */}
 

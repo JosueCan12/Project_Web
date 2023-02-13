@@ -4,7 +4,6 @@ import OrderRow from "./OrderRow";
 
 function ComponentPedidos() {
   const orders = useOrders() || [];
-  // console.log(orders);
 
   return (
     <div className="container w-11/12 shadow-2xl">

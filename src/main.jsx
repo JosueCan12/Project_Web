@@ -6,16 +6,25 @@ import App from "./App";
 import { AuthProvider } from "./context/authContext";
 import { OrdersProvider } from "./context/ordersContext";
 import { SizesProvider } from "./context/sizesContext";
+import { DesignsProvider } from "./context/designContext";
+import { FlavorsProvider } from "./context/flavorContext";
+import { StuffingsProvider } from "./context/stuffingContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
       <OrdersProvider>
-        <SizesProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </SizesProvider>
+        <DesignsProvider>
+          <SizesProvider>
+            <FlavorsProvider>
+              <StuffingsProvider>
+                <BrowserRouter>
+                  <App />
+                </BrowserRouter>
+              </StuffingsProvider>
+            </FlavorsProvider>
+          </SizesProvider>
+        </DesignsProvider>
       </OrdersProvider>
     </AuthProvider>
   </React.StrictMode>

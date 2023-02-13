@@ -12,6 +12,9 @@ import PageBreadFlavor from "./pages/PageBreadFlavor";
 import PageDesign from "./pages/PageDesign";
 import PageStuffing from "./pages/PageStuffing";
 import PageUpdate from "./pages/PageUpdate";
+import PageUpdateFlavor from "./pages/PageUpdateFlavor";
+import PageUpdateDesign from "./pages/PageUpdateDesign";
+import PageUpdateStuffing from "./pages/PageUpdateStuffing";
 
 function App() {
   const { isLoggedIn, rol } = useAuth();
@@ -31,8 +34,22 @@ function App() {
               <Route path="size" element={<PageBreadSize />} />
               <Route path="/ingredients/size/:id" element={<PageUpdate />} />
               <Route path="flavor" element={<PageBreadFlavor />} />
+              <Route
+                path="/ingredients/flavor/:id"
+                element={<PageUpdateFlavor />}
+              />
+
               <Route path="design" element={<PageDesign />} />
-              <Route path="stuffin" element={<PageStuffing />} />
+              <Route
+                path="/ingredients/design/:id"
+                element={<PageUpdateDesign />}
+              />
+
+              <Route path="stuffing" element={<PageStuffing />} />
+              <Route
+                path="/ingredients/stuffing/:id"
+                element={<PageUpdateStuffing />}
+              />
             </Route>
           </Route>
 

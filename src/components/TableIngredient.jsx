@@ -49,7 +49,6 @@ function TableIngredient({ data, title, handleShowModal, navigateTo }) {
 
             <tbody>
               {data.map((element, index) => {
-                console.log(element);
                 return (
                   <TableIngredientRow
                     navigateTo={navigateTo}
@@ -57,6 +56,7 @@ function TableIngredient({ data, title, handleShowModal, navigateTo }) {
                     imgURL={element.imgURL}
                     nombre={element.nombre}
                     precio={element.precio}
+                    status={element.status}
                     index={index + 1}
                     key={index}
                   />

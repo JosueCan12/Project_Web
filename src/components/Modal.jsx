@@ -49,13 +49,10 @@ function Modal({ children, title, handleShowModal, showModal, submitEvent }) {
           });
           return;
         }
-        console.log(form);
-        console.log({ [input.name]: input.value });
         setForm({ ...form, [input.name]: input.value });
 
         return;
       }
-      // console.log(`El campo ${element.labels[0].outerText} esta vacio`);
       messageError = `${messageError} El campo ${element.labels[0].outerText} esta vacío \n`;
     });
 
@@ -64,9 +61,10 @@ function Modal({ children, title, handleShowModal, showModal, submitEvent }) {
       return;
     }
 
-    alert("Todo esta correcto");
-    // console.log(form);
     submitEvent(form);
+    setForm({});
+    event.target.reset();
+    handleShowModal(false);
   };
 
   return (

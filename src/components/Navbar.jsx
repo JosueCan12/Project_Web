@@ -79,7 +79,7 @@ const Navbar = () => {
                   />
                 </li>
                 <li>
-                  <NavOption route={"/ingredients/stuffin"} title={"Relleno"} />
+                  <NavOption route={"/ingredients/stuffing"} title={"Relleno"} />
                 </li>
               </ul>
             ) : null}

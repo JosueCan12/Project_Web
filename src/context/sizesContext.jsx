@@ -12,34 +12,26 @@ export function SizesProvider({ children }) {
   const [sizes, setSizes] = useState([]);
   const { token } = useAuth();
 
+  const sizeToItemTable = (item) => {
+    return {
+      id: item._id,
+      imgURL: item.imgURL,
+      nombre: item.size,
+      precio: item.price,
+      status: item.status,
+    };
+  };
+
   useEffect(() => {
     (async () => {
       const resSizes = await getIngredientRequest("/breadsizes", token);
-      setSizes(
-        [...resSizes.data].map((element) => {
-          return {
-            id: element._id,
-            imgURL: element.imgURL,
-            nombre: element.size,
-            precio: element.price,
-          };
-        })
-      );
+      setSizes([...resSizes.data].map((element) => sizeToItemTable(element)));
     })();
   }, []);
 
   const createSize = async (form) => {
     const res = await createIngredientRequest("/breadsize", form, token);
-    console.log(res);
-    setSizes([
-      ...sizes,
-      {
-        id: res.data._id,
-        imgURL: res.data.imgURL,
-        nombre: res.data.size,
-        precio: res.data.price,
-      },
-    ]);
+    setSizes([...sizes, sizeToItemTable(res.data)]);
     return res;
   };
 
@@ -56,7 +48,9 @@ export function SizesProvider({ children }) {
 
   const updateSize = async (id, form) => {
     const res = await updateIngredientRequest(`/breadsize/${id}`, form, token);
-    setSizes([...flavors, res]);
+    setSizes(
+      sizes.map((size) => (size.id === id ? sizeToItemTable(res.data) : size))
+    );
     return res;
   };
 

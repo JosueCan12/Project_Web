@@ -1,8 +1,4 @@
 function OrderRow({ element, index }) {
-  console.log(element);
-  // const date = new Date(element.orderDay)
-  // Date.UTC()
-  // console.log(Date.UTC(element.orderDay));
 
   return (
     <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700 hover:bg-gray text-xs">

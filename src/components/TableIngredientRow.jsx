@@ -1,6 +1,14 @@
 import { useNavigate } from "react-router-dom";
 
-function TableIngredientRow({ navigateTo, index, id, imgURL, nombre, precio }) {
+function TableIngredientRow({
+  navigateTo,
+  index,
+  id,
+  imgURL,
+  nombre,
+  precio,
+  status,
+}) {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -8,7 +16,7 @@ function TableIngredientRow({ navigateTo, index, id, imgURL, nombre, precio }) {
   };
 
   return (
-    <tr>
+    <tr className={!status ? "bg-red-400" : ""}>
       <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
         {index}
       </th>

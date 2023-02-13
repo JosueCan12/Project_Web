@@ -30,9 +30,9 @@ export const getIngredientRequest = async (route, token) =>
 export const updateIngredientRequest = async (route, body, token) => {
   const form = createForm(body);
 
-  return api.put(route, form, {
+  return api.put(route, body, {
     headers: {
-      "Content-Type": "multipart/form-data",
+      // "Content-Type": "multipart/form-data",
       Authorization: token,
     },
   });
