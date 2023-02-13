@@ -6,7 +6,7 @@ import { useFlavors } from "../hooks/useIngredients";
 
 function PageBreadFlavor() {
   const [showModal, setShowModal] = useState(false);
-  const { flavors, createFlavor } = useFlavors();
+  const { flavors, createFlavor, deleteFlavor } = useFlavors();
 
   const handleSubmit = (form) => {
     createFlavor(form);
@@ -14,7 +14,13 @@ function PageBreadFlavor() {
 
   return (
     <div className="py-4 px-6">
-      <TableIngredient data={flavors} handleShowModal={setShowModal} title={"Sabores"} navigateTo={"/ingredients/flavor"} />
+      <TableIngredient
+        data={flavors}
+        handleShowModal={setShowModal}
+        handleDelete={deleteFlavor}
+        title={"Sabores"}
+        navigateTo={"/ingredients/flavor"}
+      />
 
       {/* Modal Component */}
 

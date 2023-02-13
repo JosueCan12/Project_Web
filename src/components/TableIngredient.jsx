@@ -1,7 +1,13 @@
 import { Children } from "react";
 import TableIngredientRow from "./TableIngredientRow";
 
-function TableIngredient({ data, title, handleShowModal, navigateTo }) {
+function TableIngredient({
+  data,
+  title,
+  handleShowModal,
+  navigateTo,
+  handleDelete = () => {},
+}) {
   return (
     <div className="w-full xl:w-11/12 xl:mb-0 mx-auto -z-30">
       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-2xl rounded ">
@@ -57,6 +63,7 @@ function TableIngredient({ data, title, handleShowModal, navigateTo }) {
                     nombre={element.nombre}
                     precio={element.precio}
                     status={element.status}
+                    handleDelete={handleDelete}
                     index={index + 1}
                     key={index}
                   />

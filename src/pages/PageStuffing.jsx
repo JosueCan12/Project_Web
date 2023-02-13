@@ -6,7 +6,7 @@ import { useStuffings } from "../hooks/useIngredients";
 
 function PageStuffing() {
   const [showModal, setShowModal] = useState(false);
-  const { stuffings, createStuffing } = useStuffings();
+  const { stuffings, createStuffing, deleteStuffing } = useStuffings();
 
   const handleSubmit = (form) => {
     createStuffing(form);
@@ -18,6 +18,7 @@ function PageStuffing() {
         data={stuffings}
         handleShowModal={setShowModal}
         title={"Rellenos"}
+        handleDelete={deleteStuffing}
         navigateTo={"/ingredients/stuffing"}
       />
 

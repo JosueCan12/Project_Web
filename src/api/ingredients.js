@@ -37,3 +37,14 @@ export const updateIngredientRequest = async (route, body, token) => {
     },
   });
 };
+
+export const deleteIngredientRequest = async (route, token) =>
+  api.put(
+    route,
+    {},
+    {
+      headers: {
+        Authorization: token,
+      },
+    }
+  );

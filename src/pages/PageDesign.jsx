@@ -6,7 +6,7 @@ import { useDesigns } from "../hooks/useIngredients";
 
 function PageDesign() {
   const [showModal, setShowModal] = useState(false);
-  const { designs, createDesign } = useDesigns();
+  const { designs, createDesign, deleteDesign } = useDesigns();
 
   const handleSubmit = (form) => {
     createDesign(form);
@@ -18,6 +18,7 @@ function PageDesign() {
         navigateTo={"/ingredients/design"}
         data={designs}
         handleShowModal={setShowModal}
+        handleDelete={deleteDesign}
         title={"Diseños"}
       />
 

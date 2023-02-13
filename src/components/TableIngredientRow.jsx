@@ -8,11 +8,18 @@ function TableIngredientRow({
   nombre,
   precio,
   status,
+  handleDelete,
 }) {
   const navigate = useNavigate();
 
   const handleClick = () => {
     navigate(`${navigateTo}/${id} `);
+  };
+
+  const handleClickDelete = () => {
+    handleDelete(id).then((res) => {
+      console.log(res);
+    });
   };
 
   return (
@@ -37,10 +44,12 @@ function TableIngredientRow({
           Editar
         </button>
         <button
-          className="rounded bg-red-400 py-1 px-3 text-xs font-bold"
-          // onClick={fun}
+          className={`rounded ${
+            !status ? "bg-blue-400" : "bg-red-600"
+          } py-1 px-3 text-xs font-bold`}
+          onClick={handleClickDelete}
         >
-          Dar de baja
+          {status ? "Dar de baja" : "Activar"}
         </button>
       </td>
     </tr>

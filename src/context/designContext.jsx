@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import {
   createIngredientRequest,
+  deleteIngredientRequest,
   getIngredientRequest,
   updateIngredientRequest,
 } from "../api/ingredients";
@@ -60,6 +61,17 @@ export function DesignsProvider({ children }) {
     return res;
   };
 
+  const deleteDesign = async (id) => {
+    const res = await deleteIngredientRequest(`/cakedesignS/${id}`, token);
+    setDesigns(
+      designs.map((design) =>
+        design.id === id ? designToItemTable(res.data) : design
+      )
+    );
+
+    return res;
+  };
+
   return (
     <designsContext.Provider
       value={{
@@ -67,6 +79,7 @@ export function DesignsProvider({ children }) {
         createDesign,
         getDesign,
         updateDesign,
+        deleteDesign,
       }}
     >
       {children}

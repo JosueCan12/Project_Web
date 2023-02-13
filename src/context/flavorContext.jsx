@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import {
   createIngredientRequest,
+  deleteIngredientRequest,
   getIngredientRequest,
   updateIngredientRequest,
 } from "../api/ingredients";
@@ -64,6 +65,16 @@ export function FlavorsProvider({ children }) {
     return res;
   };
 
+  const deleteFlavor = async (id) => {
+    const res = await deleteIngredientRequest(`/breadflavorS/${id}`, token);
+    setFlavors(
+      flavors.map((flavor) =>
+        flavor.id === id ? flavorToItemTable(res.data) : flavor
+      )
+    );
+    return res;
+  };
+
   return (
     <flavorsContext.Provider
       value={{
@@ -71,6 +82,7 @@ export function FlavorsProvider({ children }) {
         createFlavor,
         getFlavor,
         updateFlavor,
+        deleteFlavor,
       }}
     >
       {children}

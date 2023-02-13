@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import {
   createIngredientRequest,
+  deleteIngredientRequest,
   getIngredientRequest,
   updateIngredientRequest,
 } from "../api/ingredients";
@@ -54,6 +55,14 @@ export function SizesProvider({ children }) {
     return res;
   };
 
+  const deleteSize = async (id) => {
+    const res = await deleteIngredientRequest(`/breadSizeS/${id}`, token);
+    setSizes(
+      sizes.map((size) => (size.id === id ? sizeToItemTable(res.data) : size))
+    );
+    return res;
+  };
+
   return (
     <sizesContext.Provider
       value={{
@@ -61,6 +70,7 @@ export function SizesProvider({ children }) {
         createSize,
         getSize,
         updateSize,
+        deleteSize,
       }}
     >
       {children}

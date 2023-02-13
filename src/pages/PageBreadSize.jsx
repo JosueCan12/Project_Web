@@ -6,7 +6,7 @@ import { useSizes } from "../hooks/useIngredients";
 
 function PageBreadSize() {
   const [showModal, setShowModal] = useState(false);
-  const { sizes, createSize } = useSizes();
+  const { sizes, createSize, deleteSize } = useSizes();
 
   const handleSubmit = (form) => {
     createSize(form);
@@ -18,6 +18,7 @@ function PageBreadSize() {
         navigateTo={"/ingredients/size"}
         data={sizes}
         handleShowModal={setShowModal}
+        handleDelete={deleteSize}
         title={"Tamaños"}
       />
 

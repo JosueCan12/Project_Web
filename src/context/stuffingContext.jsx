@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import {
   createIngredientRequest,
+  deleteIngredientRequest,
   getIngredientRequest,
   updateIngredientRequest,
 } from "../api/ingredients";
@@ -53,7 +54,20 @@ export function StuffingsProvider({ children }) {
   const updateStuffing = async (id, form) => {
     const res = await updateIngredientRequest(`/stuffing/${id}`, form, token);
     setStuffings(
-      stuffings.map((stuffing) => (stuffing.id === id ? stuffingToItemTable(res.data) : stuffing))
+      stuffings.map((stuffing) =>
+        stuffing.id === id ? stuffingToItemTable(res.data) : stuffing
+      )
+    );
+    return res;
+  };
+
+  const deleteStuffing = async (id) => {
+    const res = await deleteIngredientRequest(`/stunffingS/${id}`, token);
+
+    setStuffings(
+      stuffings.map((stuffing) =>
+        stuffing.id === id ? stuffingToItemTable(res.data) : stuffing
+      )
     );
     return res;
   };
@@ -64,7 +78,8 @@ export function StuffingsProvider({ children }) {
         stuffings,
         createStuffing,
         getStuffing,
-        updateStuffing
+        updateStuffing,
+        deleteStuffing,
       }}
     >
       {children}
