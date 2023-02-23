@@ -24,7 +24,7 @@ export const signUpWorker = async ({
     },
     {
       headers: {
-        Authorization: token
+        Authorization: `Bearer ${token}`
       }
     }
   );

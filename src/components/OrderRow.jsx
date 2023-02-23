@@ -1,6 +1,6 @@
 function OrderRow({ element, index, handleChangeStatus }) {
   const handleClick = () => {
-    handleChangeStatus(element.orderId);
+    handleChangeStatus(element.orderId).then((res) => console.log(res));
     // console.log(element.orderId);
   };
 
@@ -29,12 +29,14 @@ function OrderRow({ element, index, handleChangeStatus }) {
         <p>{element.status}</p>
       </td>
       <td>
-        <button
-          className="bg-blue-500 text-white py-2 px-2 rounded-md hover:bg-blue-800 transition-all duration-100"
-          onClick={handleClick}
-        >
-          Finalizar
-        </button>
+        {element.status != "order finished" ? (
+          <button
+            className="bg-blue-500 text-white py-2 px-2 rounded-md hover:bg-blue-800 transition-all duration-100"
+            onClick={handleClick}
+          >
+            Finalizar
+          </button>
+        ) : null}
       </td>
     </tr>
   );

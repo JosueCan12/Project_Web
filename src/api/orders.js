@@ -3,7 +3,7 @@ import api from "./base";
 export const getOrders = async (token) =>
   await api.get("/orders", {
     headers: {
-      Authorization: token,
+      Authorization: `Bearer ${token}`,
     },
   });
 
@@ -13,7 +13,7 @@ export const changeStatusRequest = async (id, token) =>
     {},
     {
       headers: {
-        Authorization: token,
+        Authorization: `Bearer ${token}`,
       },
     }
   );

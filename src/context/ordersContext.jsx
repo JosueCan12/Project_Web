@@ -18,9 +18,10 @@ export function OrdersProvider({ children }) {
 
   const changeStatus = async (id) => {
     const res = await changeStatusRequest(id, token);
+    console.log(res.data);
     setOrders(
       orders.map((order) => {
-        return order.orderId === id ? res.data[0] : order;
+        return order.orderId === id ? res.data : order;
       })
     );
     return res;

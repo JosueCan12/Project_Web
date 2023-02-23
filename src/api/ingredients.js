@@ -15,7 +15,7 @@ export const createIngredientRequest = async (route, body, token) => {
   return api.post(route, form, {
     headers: {
       "Content-Type": "multipart/form-data",
-      Authorization: token,
+      Authorization: `Bearer ${token}`,
     },
   });
 };
@@ -23,7 +23,7 @@ export const createIngredientRequest = async (route, body, token) => {
 export const getIngredientRequest = async (route, token) =>
   api.get(route, {
     headers: {
-      Authorization: token,
+      Authorization: `Bearer ${token}`,
     },
   });
 
@@ -31,7 +31,7 @@ export const updateIngredientRequest = async (route, body, token) => {
   return api.put(route, body, {
     headers: {
       // "Content-Type": "multipart/form-data",
-      Authorization: token,
+      Authorization: `Bearer ${token}`,
     },
   });
 };
@@ -42,7 +42,7 @@ export const updateIngredientImageRequest = async (route, body, token) => {
   return api.put(route, form, {
     headers: {
       "Content-Type": "multipart/form-data",
-      Authorization: token,
+      Authorization: `Bearer ${token}`,
     },
   });
 };
@@ -53,7 +53,7 @@ export const deleteIngredientRequest = async (route, token) =>
     {},
     {
       headers: {
-        Authorization: token,
+        Authorization: `Bearer ${token}`,
       },
     }
   );

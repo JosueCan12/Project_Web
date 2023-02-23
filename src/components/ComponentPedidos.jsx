@@ -3,7 +3,7 @@ import { useOrders } from "../hooks/useOrders";
 import OrderRow from "./OrderRow";
 
 function ComponentPedidos() {
-  const { orders, changeStatus } = useOrders() || [];
+  const { orders, changeStatus } = useOrders() || {orders: [], changeStatus: ()=>{}};
 
   return (
     <div className="container w-11/12 shadow-2xl mt-5">
