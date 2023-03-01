@@ -5,97 +5,136 @@ import NavOption from "./NavOption";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [open, setOpen] = useState(true);
+  const [navbar, setNavbar] = useState(false);
   const { logout } = useAuth();
   const [showSubmenus, setShowSubmenus] = useState(false);
 
   const handleMouseHover = () => {
     setShowSubmenus(!showSubmenus);
   };
-
   return (
-    <div className=" relative ">
-      <div
-        className={` ${
-          open ? "w-60" : "w-24"
-        } bg-blanco h-screen p-6 col-span-6 pt-8 duration-300 shadow-lg sticky top-0  `}
-      >
-        <img
-          src="./src/assets/control.png"
-          style={{ width: 35 }}
-          className={`absolute cursor-pointer -right-3 top-9 w-6 border-dark-purple border-2 rounded-full  ${
-            !open && "rotate-180"
-          }`}
-          onClick={() => setOpen(!open)}
-        />
-        <div className="flex gap-x-4 items-center ">
-          <img
-            src="./src/assets/logo.png"
-            style={{ height: 30 }}
-            className={`cursor-pointer duration-500 text-center ${
-              open && "rotate-[360deg]"
-            }`}
-          />
-          <h1
-            className={` origin-left font-medium text-xl duration-200 ${
-              !open && "scale-0"
+    <nav className="w-full bg-white shadow">
+      <div className="justify-start px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+        <div>
+          <div className="flex items-center justify-between py-3 md:py-5 md:block">
+            <div className="pr-4">
+            <img
+              src="/src/assets/Logo.png"
+              alt=""
+              className="w-[50px] h-[35px] object-contain"
+            />
+            </div>
+           
+
+            <div className="md:hidden">
+              <button
+                className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+                onClick={() => setNavbar(!navbar)}
+              >
+                {navbar ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6 text-black"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6 text-black"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
+              navbar ? "block" : "hidden"
             }`}
           >
-            PanDeli
-          </h1>
-        </div>
-        <ul className="pt-5">
-          <li>
-            <NavOption
-              route={"/pedidos"}
-              title={"Pedidos"}
-              open={open}
-              imgURL={"pedido"}
-            />
-          </li>
-          <li onMouseEnter={handleMouseHover} onMouseLeave={handleMouseHover}>
-            <NavOption
-              title={"Ingredientes"}
-              open={open}
-              imgURL={"ingrediente"}
-              disableLink={true}
-            />
+            <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0 ">
+              <li>
+                <NavOption
+                  route={"/pedidos"}
+                  title={"Pedidos"}
+                  open={open}
+                  imgURL={"pedido"}
+                />
+              </li>
+              <li
+                onMouseEnter={handleMouseHover}
+                onMouseLeave={handleMouseHover}
+              >
+                <NavOption
+                  title={"Ingredientes"}
+                  open={open}
+                  imgURL={"ingrediente"}
+                  disableLink={true}
+                />
 
-            {open && showSubmenus ? (
-              <ul>
-                <li>
-                  <NavOption route={"/ingredients/design"} title={"Diseño"} />
-                </li>
-                <li>
-                  <NavOption
-                    route={"/ingredients/size"}
-                    title={"Tamaño del pan"}
-                  />
-                </li>
-                <li>
-                  <NavOption
-                    route={"/ingredients/flavor"}
-                    title={"Sabor del pan"}
-                  />
-                </li>
-                <li>
-                  <NavOption route={"/ingredients/stuffing"} title={"Relleno"} />
-                </li>
-              </ul>
-            ) : null}
-          </li>
-          <li className="flex flex-col">
-            <NavOption
-              route={"/"}
-              handleClick={logout}
-              title={"Salida"}
-              open={open}
-              imgURL={"salida"}
-            />
-          </li>
-        </ul>
+                {open && showSubmenus ? (
+                  <div className="absolute z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                    <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+                      <li className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                        <NavOption
+                          route={"/ingredients/design"}
+                          title={"Diseño"}
+                        />
+                      </li>
+                      <li className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                        <NavOption
+                          route={"/ingredients/size"}
+                          title={"Tamaño del pan"}
+                        />
+                      </li>
+                      <li className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                        <NavOption
+                          route={"/ingredients/flavor"}
+                          title={"Sabor del pan"}
+                        />
+                      </li>
+                      <li className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                        <NavOption
+                          route={"/ingredients/stuffing"}
+                          title={"Relleno"}
+                        />
+                      </li>
+                    </ul>
+                  </div>
+                ) : null}
+              </li>
+              <li className="flex flex-col justify-end">
+                <NavOption
+                  route={"/"}
+                  handleClick={logout}
+                  title={"Salida"}
+                  open={open}
+                  imgURL={"salida"}
+                />
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
+    </nav>
   );
 };
 export default Navbar;

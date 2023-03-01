@@ -9,8 +9,8 @@ function PagePedidos() {
   const { rol } = useAuth();
 
   return (
-    <div className="container">
-      <TitlePage label="Pedidos" />
+    <div className="container py-4">
+     {/*  <TitlePage label="Pedidos" /> */}
 
       {/* {rol === "admin" ? <OptionAddUsers /> : null} */}
 

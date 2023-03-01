@@ -29,8 +29,8 @@ function Login() {
   }
 
   return (
-    <section className="max-w-full dark:bg-gray-900 bg-image">
-      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <section className="relative items-center max-w-full bg-image">
+      <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 min-h-screen   sm:px-6 lg:px-8">
         <div className="w-full bg-white rounded-lg  dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 shadow-xl ">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold text-center leading-tight tracking-tight md:text-2xl text-blue-700 dark:text-white py-5">

@@ -6,7 +6,7 @@ function PagesIngredientes() {
 
   return (
     <div className="container">
-      <TitlePage label="Ingredientes" />
+    {/*   <TitlePage label="Ingredientes" /> */}
       <Outlet />
     </div>
   );

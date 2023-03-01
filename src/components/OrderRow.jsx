@@ -1,3 +1,5 @@
+/* import "../styles/table.css"; */
+
 function OrderRow({ element, index, handleChangeStatus }) {
   const handleClick = () => {
     handleChangeStatus(element.orderId).then((res) => console.log(res));
@@ -5,30 +7,37 @@ function OrderRow({ element, index, handleChangeStatus }) {
   };
 
   return (
-    <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700 hover:bg-gray text-xs">
-      <th scope="row" className="px-6 py-4 font-medium text-black ">
+    <tr>
+      <th
+        scope="row"
+        className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center"
+      >
         {index}
       </th>
-      <td className="px-6 py-4">
-        <img
-          className="max-w-[100px] p-0 m-auto"
-          src={`${element.imgURL}`}
-          alt=""
-        />
+      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+        <div className="flex">
+          <img
+            className="max-w-[100px] p-0 m-auto w-10 h-10 rounded-full border-2 border-blueGray-50 shadow"
+            src={`${element.imgURL}`}
+            alt=""
+          />
+        </div>
       </td>
-      <td className="px-6 py-4">
+      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
         <ul>
           <li>Sabor del pan: {element.flavor}</li>
           <li>Relleno: {element.stuffing}</li>
           <li>Tamaño: {element.size}</li>
         </ul>
       </td>
-      <td className="px-6 py-4">$299</td>
-      <td className="px-6 py-4">{element.orderDay}</td>
-      <td className="px-6 py-4">
+      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">$299</td>
+      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+        {element.orderDay}
+      </td>
+      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
         <p>{element.status}</p>
       </td>
-      <td>
+      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
         {element.status != "order finished" ? (
           <button
             className="bg-blue-500 text-white py-2 px-2 rounded-md hover:bg-blue-800 transition-all duration-100"

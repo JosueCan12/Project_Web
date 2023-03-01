@@ -12,6 +12,7 @@ import PageBreadFlavor from "./pages/PageBreadFlavor";
 import PageDesign from "./pages/PageDesign";
 import PageStuffing from "./pages/PageStuffing";
 import PageUpdate from "./pages/PageUpdate";
+import PageError  from "./pages/PageError";
 import PageUpdateFlavor from "./pages/PageUpdateFlavor";
 import PageUpdateDesign from "./pages/PageUpdateDesign";
 import PageUpdateStuffing from "./pages/PageUpdateStuffing";
@@ -25,15 +26,17 @@ function App() {
         <Route index element={<Login />} />
       </Routes>
 
-      <div className="flex">
+      <div className="">
         {isLoggedIn ? <Navbar /> : null}
         <Routes>
+       
           <Route element={<ProtectedRoute isAllowed={isLoggedIn} />}>
             <Route path="/pedidos" element={<PagePedidos />} />
             <Route path="/ingredients" element={<PagesIngredientes />}>
               <Route path="size" element={<PageBreadSize />} />
               <Route path="/ingredients/size/:id" element={<PageUpdate />} />
               <Route path="flavor" element={<PageBreadFlavor />} />
+              
               <Route
                 path="/ingredients/flavor/:id"
                 element={<PageUpdateFlavor />}
@@ -62,6 +65,7 @@ function App() {
             }
           >
             <Route path="/usuarios" element={<PageUsuarios />} />
+            {/* <Route path="*" element={<PageError/>}/> */}
           </Route>
         </Routes>
       </div>
