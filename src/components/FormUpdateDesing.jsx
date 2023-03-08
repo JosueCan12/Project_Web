@@ -7,6 +7,8 @@ function FormUpdateDesign({ title, handleCharge, submitEvent }) {
   const params = useParams();
 
   useEffect(() => {
+    // console.log(handleCharge);
+    // console.log(params.id);
     handleCharge(params.id).then((res) => {
       res = {
         description: res.description,
@@ -49,7 +51,7 @@ function FormUpdateDesign({ title, handleCharge, submitEvent }) {
     });
 
     submitEvent(params.id, form);
-    navigate(-1)
+    navigate(-1);
   };
 
   return (

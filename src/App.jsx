@@ -26,7 +26,7 @@ function App() {
         <Route index element={<Login />} />
       </Routes>
 
-      <div className="">
+      <div className=" relative">
         {isLoggedIn ? <Navbar /> : null}
         <Routes>
           <Route element={<ProtectedRoute isAllowed={isLoggedIn} />}>

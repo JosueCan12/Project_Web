@@ -34,7 +34,7 @@ function Login() {
         <div className="w-full bg-white rounded-lg  dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 shadow-xl ">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
             <h1 className="text-xl font-bold text-center leading-tight tracking-tight md:text-2xl text-blue-700 dark:text-white py-5">
-              ¡Bienviendo!
+              ¡Bienvenido!
             </h1>
             <form className="space-y-4 md:space-y-6" onSubmit={handleSumbit}>
               <div className="">

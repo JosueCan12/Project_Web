@@ -43,6 +43,7 @@ export function DesignsProvider({ children }) {
 
   const getDesign = (id) => {
     return getIngredientRequest(`/cakedesign/${id}`, token).then((res) => {
+      console.log(res);
       return {
         id: res.data._id,
         imagen: res.data.imgURL,
