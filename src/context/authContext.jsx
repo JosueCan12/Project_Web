@@ -16,6 +16,7 @@ export function AuthProvider({ children }) {
       const rol = await res.data.rol;
       const status = res.status;
 
+      console.log(token);
       setRol(rol);
       setIsLoggedIn(true);
       setToken(token);
@@ -41,7 +42,9 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <authContext.Provider value={{ login, token, logout, isLoggedIn, rol, registerAccount }}>
+    <authContext.Provider
+      value={{ login, token, logout, isLoggedIn, rol, registerAccount }}
+    >
       {children}
     </authContext.Provider>
   );

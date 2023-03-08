@@ -10,13 +10,11 @@ function TableIngredient({
 }) {
   return (
     <div className="w-full xl:w-11/12 xl:mb-0 mx-auto -z-30">
-      <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-2xl rounded ">
-        <div className="rounded mb-0 px-4 py-3 border-0">
+      <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-2xl">
+        <div className="px-4 py-3 bg-[#f0abfc] text-black border-b border-[#e879f9] rounded-t-md rounded-tl-md">
           <div className="flex flex-wrap items-center">
             <div className="relative w-full px-4 max-w-full flex-grow flex-1">
-              <h3 className="font-semibold text-base text-blueGray-700">
-                {title}
-              </h3>
+              <h3 className="font-semibold text-base">{title}</h3>
             </div>
             <div className="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
               <button
@@ -31,29 +29,29 @@ function TableIngredient({
           </div>
         </div>
 
-        <div className="block w-full overflow-x-auto">
-          <table className="items-center bg-transparent w-full border-collapse ">
-            <thead className="font-bold">
+        <div className="block w-full overflow-x-auto b-0">
+          <table className="items-center w-full border-collapse">
+            <thead className="bg-[#f0abfc] font-bold text-black">
               <tr>
-                <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center">
+                <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center">
                   #
                 </th>
-                <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center">
+                <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center">
                   Imagen
                 </th>
-                <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center">
+                <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center">
                   Nombre
                 </th>
-                <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center">
+                <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center">
                   Precio
                 </th>
-                <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center">
+                <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center">
                   Acciones
                 </th>
               </tr>
             </thead>
 
-            <tbody >
+            <tbody>
               {data.map((element, index) => {
                 return (
                   <TableIngredientRow

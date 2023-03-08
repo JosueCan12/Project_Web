@@ -11,14 +11,14 @@ export function OrdersProvider({ children }) {
   useEffect(() => {
     (async () => {
       const res = await getOrders(token);
-      setOrders(res.data);
-      console.log(res.data);
+      console.log(res.data.orders);
+      setOrders(res.data.orders);
     })();
   }, []);
 
   const changeStatus = async (id) => {
     const res = await changeStatusRequest(id, token);
-    console.log(res.data);
+    // console.log(res.data);
     setOrders(
       orders.map((order) => {
         return order.orderId === id ? res.data : order;

@@ -26,9 +26,9 @@ export function DesignsProvider({ children }) {
 
   useEffect(() => {
     (async () => {
-      const resDesigns = await getIngredientRequest("/cakedesigns", token);
+      const resDesigns = await getIngredientRequest("/cakedesigns/1", token);
       setDesigns(
-        [...resDesigns.data].map((element) => {
+        [...resDesigns.data.cakeDesigns.docs].map((element) => {
           return designToItemTable(element);
         })
       );

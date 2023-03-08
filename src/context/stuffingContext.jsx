@@ -25,9 +25,9 @@ export function StuffingsProvider({ children }) {
 
   useEffect(() => {
     (async () => {
-      const resStuffings = await getIngredientRequest("/stuffings", token);
+      const resStuffings = await getIngredientRequest("/stuffings/1", token);
       setStuffings(
-        [...resStuffings.data].map((element) => {
+        [...resStuffings.data.stuffings.docs].map((element) => {
           return stuffingToItemTable(element);
         })
       );

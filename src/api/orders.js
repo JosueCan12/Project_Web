@@ -1,7 +1,7 @@
 import api from "./base";
 
 export const getOrders = async (token) =>
-  await api.get("/orders", {
+  await api.get("/orders/1", {
     headers: {
       Authorization: `Bearer ${token}`,
     },
