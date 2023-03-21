@@ -21,7 +21,7 @@ export const createIngredientRequest = async (route, body, token) => {
 };
 
 export const getIngredientRequest = async (route, token) =>
-  api.get(route, {
+  api.get(`${route}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

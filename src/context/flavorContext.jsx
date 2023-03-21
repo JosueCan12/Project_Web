@@ -25,7 +25,7 @@ export function FlavorsProvider({ children }) {
 
   useEffect(() => {
     (async () => {
-      const resFlavors = await getIngredientRequest("/breadflavors/1", token);
+      const resFlavors = await getIngredientRequest("/breadflavors/1/10", token);
       setFlavors(
         [...resFlavors.data.breadFlavors.docs].map((element) => {
           return flavorToItemTable(element);

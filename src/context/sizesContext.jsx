@@ -25,7 +25,7 @@ export function SizesProvider({ children }) {
 
   useEffect(() => {
     (async () => {
-      const resSizes = await getIngredientRequest("/breadsizes/1", token);
+      const resSizes = await getIngredientRequest("/breadsizes/1/10", token);
       console.log(resSizes.data.breadSizes.docs);
       setSizes(
         [...resSizes.data.breadSizes.docs].map((element) =>
