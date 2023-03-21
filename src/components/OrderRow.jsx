@@ -1,4 +1,4 @@
-/* import "../styles/table.css"; */
+
 
 function OrderRow({ element, index, handleChangeStatus }) {
   const handleClick = () => {
@@ -7,7 +7,7 @@ function OrderRow({ element, index, handleChangeStatus }) {
   };
 
   return (
-    <tr className="odd:bg-pink-200 even:bg-gray-50 text-gray-700 text-base">
+    <tr className="bg-[#eaedf3] text-gray-700 text-base">
       <th
         scope="row"
         className="border-t-0 px-6 py-4 border-l-0 border-r-0 whitespace-nowrap text-center"
@@ -45,7 +45,7 @@ function OrderRow({ element, index, handleChangeStatus }) {
       <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 whitespace-nowrap p-4">
         {element.status != "order finished" ? (
           <button
-            className="bg-blue-500 text-white py-2 px-2 rounded-md hover:bg-blue-800 transition-all duration-100"
+            className="bg-[#E67F4F] text-white py-2 px-2 rounded-md hover:bg-blue-800 transition-all duration-100"
             onClick={handleClick}
           >
             Finalizar

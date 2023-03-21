@@ -12,7 +12,7 @@ function PagePedidos() {
     <div className="container py-4">
      {/*  <TitlePage label="Pedidos" /> */}
 
-      {/* {rol === "admin" ? <OptionAddUsers /> : null} */}
+     {/*  {rol === "admin" ? <OptionAddUsers /> : null} */}
 
       <ComponentPedidos />
     </div>

@@ -16,6 +16,7 @@ import PageError from "./pages/PageError";
 import PageUpdateFlavor from "./pages/PageUpdateFlavor";
 import PageUpdateDesign from "./pages/PageUpdateDesign";
 import PageUpdateStuffing from "./pages/PageUpdateStuffing";
+import ComponentRegister from './components/ComponentRegister';
 
 function App() {
   const { isLoggedIn, rol } = useAuth();
@@ -60,6 +61,7 @@ function App() {
             }
           >
             <Route path="/usuarios" element={<PageUsuarios />} />
+           {/*  <Route path="/register" element={<ComponentRegister />} /> */}
             {/* <Route path="*" element={<PageError/>}/> */}
           </Route>
         </Routes>

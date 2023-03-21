@@ -22,7 +22,7 @@ function PageError() {
             </div>
         </div>
     </div>
-    <div>
+    <div> 
         <img src="https://i.ibb.co/ck1SGFJ/Group.png" />
     </div>
 </div></div>

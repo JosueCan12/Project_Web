@@ -19,7 +19,7 @@ module.exports = {
       green: "#028A0F",
       white: "#FAFAFA",
       black: "#2f3033",
-      primary: "#6a00b8",
+      primary: "#33548a",
       secondary: "#8c3f7c",
       tertiary: "#e587d1",
       alternate: "#ff5963",

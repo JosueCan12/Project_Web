@@ -1,14 +1,21 @@
 import React from "react";
-import TitlePage from "../components/TitlePage";
-import ComponentRegister from "../components/ComponentRegister";
+import { useState } from "react";
+import ModalUsers from "../components/ModalUsers";
+import TableUsers from "../components/TableUsers";
 
 function PageUsuarios() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
-    <div className="container bg-gray-100 ">
-    <TitlePage label="Pedidos"/>
+    <div className="py-4 px-6">
+      <TableUsers openModal={setShowModal} />
 
-     <ComponentRegister/>
-
+      {showModal && (
+        <ModalUsers
+          closeModal={() => setShowModal(false)}
+          openModal={setShowModal}
+        />
+      )}
     </div>
   );
 }
