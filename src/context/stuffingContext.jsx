@@ -25,14 +25,19 @@ export function StuffingsProvider({ children }) {
 
   useEffect(() => {
     (async () => {
-      const resStuffings = await getIngredientRequest("/stuffings/1/10", token);
-      setStuffings(
-        [...resStuffings.data.stuffings.docs].map((element) => {
-          return stuffingToItemTable(element);
-        })
-      );
+      if (token !== "") {
+        const resStuffings = await getIngredientRequest(
+          "/stuffings/1/10",
+          token
+        );
+        setStuffings(
+          [...resStuffings.data.stuffings.docs].map((element) => {
+            return stuffingToItemTable(element);
+          })
+        );
+      }
     })();
-  }, []);
+  }, [token]);
 
   const createStuffing = async (form) => {
     const res = await createIngredientRequest("/stuffing", form, token);

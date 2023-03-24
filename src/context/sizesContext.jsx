@@ -25,15 +25,17 @@ export function SizesProvider({ children }) {
 
   useEffect(() => {
     (async () => {
-      const resSizes = await getIngredientRequest("/breadsizes/1/10", token);
-      console.log(resSizes.data.breadSizes.docs);
-      setSizes(
-        [...resSizes.data.breadSizes.docs].map((element) =>
-          sizeToItemTable(element)
-        )
-      );
+      if (token !== "") {
+        const resSizes = await getIngredientRequest("/breadsizes/1/10", token);
+        console.log(resSizes.data.breadSizes.docs);
+        setSizes(
+          [...resSizes.data.breadSizes.docs].map((element) =>
+            sizeToItemTable(element)
+          )
+        );
+      }
     })();
-  }, []);
+  }, [token]);
 
   const createSize = async (form) => {
     const res = await createIngredientRequest("/breadsize", form, token);

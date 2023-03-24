@@ -25,14 +25,19 @@ export function FlavorsProvider({ children }) {
 
   useEffect(() => {
     (async () => {
-      const resFlavors = await getIngredientRequest("/breadflavors/1/10", token);
-      setFlavors(
-        [...resFlavors.data.breadFlavors.docs].map((element) => {
-          return flavorToItemTable(element);
-        })
-      );
+      if (token !== "") {
+        const resFlavors = await getIngredientRequest(
+          "/breadflavors/1/10",
+          token
+        );
+        setFlavors(
+          [...resFlavors.data.breadFlavors.docs].map((element) => {
+            return flavorToItemTable(element);
+          })
+        );
+      }
     })();
-  }, []);
+  }, [token]);
 
   const createFlavor = async (form) => {
     const res = await createIngredientRequest("/breadflavor", form, token);
