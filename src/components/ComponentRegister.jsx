@@ -36,11 +36,12 @@ function ComponentRegister({ closeModal }) {
 
     console.log(form);
     registerAccount(form);
+    closeModal(false);
   };
 
   return (
     <div>
-      <h1 className="text-center font-bold pb-5 text-blue-600 text text-2xl">
+      <h1 className="text-center font-bold pb-5 text-[#03254e] text text-2xl">
         Agregar Usuario
       </h1>
       <form className="px-8 bg-white rounded" onSubmit={handleSubmit}>
@@ -114,7 +115,7 @@ function ComponentRegister({ closeModal }) {
         </div>
         <div className="mb-6 text-center">
           <button
-            className="w-full px-4 py-2 font-bold text-white bg-blue-700 rounded-lg hover:bg-blue-500 focus:outline-none focus:shadow-outline"
+            className="w-full px-4 py-2 font-bold text-white bg-[#03254e] rounded-lg hover:bg-blue-900 focus:outline-none focus:shadow-outline"
             type="submit"
           >
             Registrar cuenta

@@ -23,7 +23,7 @@ function TableIngredientRow({
   };
 
   return (
-    <tr className={!status ? "bg-red-300" : "odd:bg-[#eaedf3] even:bg-gray-50 text-gray-700 text-base"}>
+    <tr className={!status ? "bg-pink-300" : " even:bg-gray-50 text-gray-700 text-base"}>
       <th className=" text-center border-t-0 px-6 align-middle border-l-0 border-r-0 whitespace-nowrap p-4 text-blueGray-700 ">
         {index}
       </th>
@@ -40,7 +40,7 @@ function TableIngredientRow({
         <div className="flex justify-center ">
         <div className="items-center flex pr-2">
           <button
-            className="rounded bg-blue-700 py-1 px-3 font-bold text-white"
+            className="rounded bg-blue-600 py-1 px-3 font-bold text-white"
             onClick={handleClick}
           >
             Editar
@@ -49,7 +49,7 @@ function TableIngredientRow({
         <div className="items-center flex pl-2">
           <button
             className={`rounded ${
-              !status ? "bg-blue-600" : "bg-red-700"
+              !status ? "bg-green-600" : "bg-red-700"
             } py-1 px-3 font-bold text-white`}
             onClick={handleClickDelete}
           >

@@ -13,7 +13,7 @@ const Navbar = () => {
     setShowSubmenus(!showSubmenus);
   };
   return (
-    <nav className="w-full bg-primary text-white shadow sticky top-0 z-50">
+    <nav className="w-full bg-[#011c27] text-white shadow sticky top-0 z-50">
       <div className="justify-start px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">

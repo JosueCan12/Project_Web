@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useOrders } from "../hooks/useOrders";
 import OrderRow from "./OrderRow";
 
@@ -11,20 +10,12 @@ function ComponentPedidos() {
 
   return (
     <section className="relative ">
-      {/* <div className="py-3 d-flex pl-5 ">
-        <Link to={"/usuarios"}>
-          <button className="bg-blue-500 py-2 rounded-md shadow-lg px-2 text-white font-bold ">
-            Usuarios
-          </button>
-        </Link>
-      </div> */}
-
       {orders.length <= 0 ? (
         <h3 className="w-full text-center">No hay ordenes en este momento</h3>
       ) : (
         <div className="w-full mb-12 px-4">
           <div className="relative flex flex-col min-w-0  w-full mb-6 shadow-lg rounded ">
-            <div className="rounded-t mb-0 px-4 py-3 border-0 bg-[#33548a] text-black border-b border-[#33548a]">
+            <div className="rounded-t mb-0 px-4 py-3 border-0 bg-[#03254e] text-black border-b border-[#03254e]">
               <div className="flex flex-wrap items-center">
                 <div className="relative w-full px-4 max-w-full flex-grow flex-1 ">
                   <h3 className="font-semibold text-lg text-white">Pedidos</h3>
@@ -33,7 +24,7 @@ function ComponentPedidos() {
             </div>
             <div className="block w-full overflow-x-auto ">
               <table className="items-center w-full bg-transparent border-collapse text-white">
-                <thead className="bg-[#789dc9] font-bold text-black">
+                <thead className="bg-[#545677] font-bold text-white">
                   <tr>
                     <th
                       scope="col"

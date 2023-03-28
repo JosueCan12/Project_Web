@@ -11,14 +11,14 @@ function TableIngredient({
   return (
     <div className="w-full xl:w-11/12 xl:mb-0 mx-auto -z-30">
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-2xl">
-        <div className="px-4 py-3 bg-[#33548a] text-black border-b border-[#33548a] rounded-t-md rounded-tl-md">
+        <div className="px-4 py-3 bg-[#03254e] text-black border-b border-[#03254e] rounded-t-md rounded-tl-md">
           <div className="flex flex-wrap items-center">
             <div className="relative w-full px-4 max-w-full flex-grow flex-1">
               <h3 className="font-semibold text-base text-white">{title}</h3>
             </div>
             <div className="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
               <button
-                className="bg-green-700 text-white text-xs font-bold uppercase px-3 py-1.5 rounded"
+                className="bg-pink-500 text-white text-xs font-bold uppercase px-3 py-1.5 rounded"
                 onClick={() => {
                   handleShowModal(true);
                 }}
@@ -31,7 +31,7 @@ function TableIngredient({
 
         <div className="block w-full overflow-x-auto b-0">
           <table className="items-center w-full border-collapse">
-            <thead className="bg-[#789dc9] font-bold text-black">
+            <thead className="bg-[#545677] font-bold text-white">
               <tr>
                 <th className="px-6 bg-blueGray-50 text-blueGray-500 align-middle py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-center">
                   #

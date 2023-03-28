@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 
 function OptionAddUsers() {
   return (
-    <div className="py-4 pl-12">
+    <div className="pb-4 pl-5">
       <Link to="/usuarios">
         <button
           type="button"
-          className="bg-blue-500 shadow-md hover: font-bold rounded w-48 text-blanco h-9 "
+          className="bg-pink-500 shadow-md hover: font-bold rounded w-36 text-blanco h-9 "
         >
-          Añadir usuarios
+           Usuarios
         </button>
       </Link>
     </div>
