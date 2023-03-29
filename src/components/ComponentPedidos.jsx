@@ -23,7 +23,7 @@ function ComponentPedidos() {
               </div>
             </div>
             <div className="block w-full overflow-x-auto ">
-              <table className="items-center w-full bg-transparent border-collapse text-white">
+              <table className="items-center w-full bg-transparent border-collapse text-white ">
                 <thead className="bg-[#545677] font-bold text-white">
                   <tr>
                     <th

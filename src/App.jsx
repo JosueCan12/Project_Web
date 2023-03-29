@@ -16,7 +16,7 @@ import PageError from "./pages/PageError";
 import PageUpdateFlavor from "./pages/PageUpdateFlavor";
 import PageUpdateDesign from "./pages/PageUpdateDesign";
 import PageUpdateStuffing from "./pages/PageUpdateStuffing";
-import ComponentRegister from './components/ComponentRegister';
+import ComponentRegister from "./components/ComponentRegister";
 
 function App() {
   const { isLoggedIn, rol } = useAuth();
@@ -40,6 +40,7 @@ function App() {
               path="/ingredients/flavor/:id"
               element={<PageUpdateFlavor />}
             />
+
             <Route path="/ingredients/design" element={<PageDesign />} />
             <Route
               path="/ingredients/design/:id"
@@ -55,14 +56,15 @@ function App() {
           <Route
             element={
               <ProtectedRoute
-                isAllowed={isLoggedIn && rol === "admin"}
+                isAllowed={(isLoggedIn && rol === "admin") || rol === "seller"}
                 redirectTo="/pedidos"
               />
             }
           >
+            
             <Route path="/usuarios" element={<PageUsuarios />} />
-           {/*  <Route path="/register" element={<ComponentRegister />} /> */}
-            {/* <Route path="*" element={<PageError/>}/> */}
+            {/*  <Route path="*" element={<PageError />} /> */}
+            {/*  <Route path="/register" element={<ComponentRegister />} /> */}
           </Route>
         </Routes>
       </div>

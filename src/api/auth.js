@@ -37,7 +37,7 @@ export const getWorkers = async (token) =>
     }
   );
 
-async function showWorkers(page, limit) {
+/* async function showWorkers(page, limit) {
   try {
     const token = JSON.parse(localStorage.getItem("token"));
     const headers = { Authorization: `Bearer ${token}` };
@@ -60,4 +60,4 @@ export async function loadWorkers() {
   } catch (error) {
     console.error(error);
   }
-}
+} */

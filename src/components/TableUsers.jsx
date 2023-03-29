@@ -1,7 +1,19 @@
 import React from "react";
+import { authContext } from "../context/authContext";
+function TableUsers({ openModal }) {
+/*  const { showWorkers } = useContext(authContext);
+  const [users, setUsers] = useState([]);
 
-
-function TableUsers({ openModal,  }) {
+  useEffect(() => {
+    async function fetchData() {
+      const res = await showWorkers();
+      if (res && res.data && res.data.worker && res.data.worker.docs) {
+        setUsers(res.data.worker.docs);
+      }
+    }
+     fetchData();
+  }, [showWorkers]); */
+ 
   return (
     <section className="antialiased ">
       <div className="flex flex-col justify-center h-full justify-items-center">
@@ -40,26 +52,13 @@ function TableUsers({ openModal,  }) {
                   </tr>
                 </thead>
                 <tbody className="text-sm divide-y divide-gray-100">
-                <tr>
-                    <td className="p-2 whitespace-nowrap">
-                      <div className="flex items-center">
-                        <div className="font-medium text-gray-800">
-                          
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-2 whitespace-nowrap">
-                      <div className="text-left"></div>
-                    </td>
-                    <td className="p-2 whitespace-nowrap">
-                      <div className="text-left font-medium text-green-500">
-                        
-                      </div>
-                    </td>
-                    <td className="p-2 whitespace-nowrap">
-                      <div className="text-lg text-center"></div>
-                    </td>
-                  </tr>
+              {/*   {users.map((user) => (
+                    <tr key={user._id}>
+                      <td>{user.name}</td>
+                      <td>{user.lastName}</td>
+                      <td>{user.email}</td>
+                    </tr>
+                  ))} */}
                 </tbody>
               </table>
             </div>
